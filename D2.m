@@ -192,7 +192,7 @@ function [miu_star, vncomb] = voronoiShrink(P, idx, X_MAX, X_MIN, Y_MAX, Y_MIN)
             [vncomb(i).nh, vncomb(i).nv, vncomb(i).l, vncomb(i).L] = ...
                 findhvlL(mid, P(idx, :), P(adji(i), :), vncomb(i).epsilon, vncomb(i).v1, vncomb(i).v2, vncomb(i).k);
             alphah = - vncomb(i).L / 2;
-            alphav = (vncomb(i).l.^2 - (vncomb(i).l - vncomb(i).L).^2) / vncomb(i).epsilon_len;
+            alphav = (vncomb(i).l.^2 - (vncomb(i).l - vncomb(i).L).^2) / vncomb(i).epsilon_len / 2;
             vncomb(i).miustar = -(alphah ./ sqrt(alphah.^2 + alphav.^2) .* vncomb(i).nh +...
                 alphav / sqrt(alphah.^2 + alphav.^2) .* vncomb(i).nv);
         end
